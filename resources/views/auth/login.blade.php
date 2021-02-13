@@ -8,10 +8,10 @@
     <title>Sign Up Form by Colorlib</title>
 
     <!-- Font Icon -->
-    <link rel="stylesheet" href="../assets/dist/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="{{asset('assets/dist/fonts/material-icon/css/material-design-iconic-font.min.css')}}">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="../assets/dist/css/style.css">
+    <link rel="stylesheet" href="{{asset('assets/dist/css/style.css')}}">
 </head>
 <body>
 
@@ -21,7 +21,7 @@
             <div class="container">
                 <div class="signin-content">
                     <div class="signin-image">
-                        <figure><img src="../assets/dist/images/signin-image.jpg" alt="sing up image"></figure>
+                        <figure><img src="{{asset('assets/dist/images/signin-image.jpg')}}" alt="sing up image"></figure>
                         <a href="{{ route('register') }}" class="signup-image-link">Create an account</a>
                     </div>
 
@@ -71,7 +71,7 @@
     </div>
 
     <!-- JS -->
-    <script src="../assets/dist/vendor/jquery/jquery.min.js"></script>
-    <script src="../assets/dist/js/main.js"></script>
+    <script src="{{asset('assets/dist/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('assets/dist/js/main.js')}}"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use\App\Models\Kelurahan;
-use\App\Models\Kecamatan;
+use App\Models\Kelurahan;
+use App\Models\Kecamatan;
 use Illuminate\Http\Request;
-use\Controllers\DB;
+use Controllers\DB;
 
 class KelurahanController extends Controller
 {
@@ -14,9 +14,13 @@ class KelurahanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-        $kelurahan = Kelurahan::with('kecamatan')->get();
+        $kelurahan = Kelurahan::join('kecamatans','kelurahans.id_kecamatan','=','kecamatans.id')->select('kelurahans.*','nama_kecamatan')->get();
         return view('admin.kelurahan.index', compact('kelurahan'));
     }
 
@@ -40,6 +44,12 @@ class KelurahanController extends Controller
     public function store(Request $request)
     {
         $kelurahan = new Kelurahan;
+        $request->validate([
+            'nama_kelurahan' => 'required|unique:kelurahans,nama_kelurahan|regex:/^[a-z A-Z]+$/u|min:4|max:20',
+        ],[
+            'nama_kelurahan.required' => 'Kelurahan required'
+        ]);
+
         $kelurahan->id_kecamatan = $request->id_kecamatan;
         $kelurahan->nama_kelurahan = $request->nama_kelurahan;
         $kelurahan->save();
@@ -82,6 +92,11 @@ class KelurahanController extends Controller
     public function update(Request $request, $id)
     {
         $kelurahan = Kelurahan::findOrFail($id);
+        $request->validate([
+            'nama_kelurahan' => 'required|unique:kelurahans,nama_kelurahan|regex:/^[a-z A-Z]+$/u|min:4|max:20',
+        ],[
+            'nama_kelurahan.required' => 'Kelurahan required'
+        ]);
         $kelurahan->id_kecamatan = $request->id_kecamatan;
         $kelurahan->nama_kelurahan = $request->nama_kelurahan;
         $kelurahan->save();

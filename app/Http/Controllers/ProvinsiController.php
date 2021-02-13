@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use\Controllers\DB;
+use Controllers\DB;
 use App\Models\Provinsi;
 use Illuminate\Http\Request;
 
@@ -13,6 +13,10 @@ class ProvinsiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $provinsi = Provinsi::all();
@@ -38,6 +42,13 @@ class ProvinsiController extends Controller
     public function store(Request $request)
     {
         $provinsi = new Provinsi;
+        $request->validate([
+            'kode_provinsi' => 'required|int|unique:provinsis,kode_provinsi|alpha_num|numeric',
+            'nama_provinsi' => 'required|unique:provinsis,nama_provinsi|regex:/^[a-z A-Z]+$/u|min:4|max:20',
+        ],[
+            'kode_provinsi.required' => 'Kode is required',
+            'nama_provinsi.required' => 'Provinsi required'
+        ]);
         $provinsi->kode_provinsi = $request->kode_provinsi;
         $provinsi->nama_provinsi = $request->nama_provinsi;
         $provinsi->save();
@@ -79,6 +90,13 @@ class ProvinsiController extends Controller
     public function update(Request $request, $id)
     {
         $provinsi = Provinsi::findOrFail($id);
+        $request->validate([
+            'kode_provinsi' => 'required|int|unique:provinsis,kode_provinsi|alpha_num|numeric',
+            'nama_provinsi' => 'required|unique:provinsis,nama_provinsi|regex:/^[a-z A-Z]+$/u|min:4|max:20',
+        ],[
+            'kode_provinsi.required' => 'Kode is required',
+            'nama_provinsi.required' => 'Provinsi required'
+        ]);
         $provinsi->kode_provinsi = $request->kode_provinsi;
         $provinsi->nama_provinsi = $request->nama_provinsi;
         $provinsi->save();

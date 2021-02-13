@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
@@ -15,6 +15,15 @@
                     @endif
 
                     You are logged in! --}}
+                    @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
                     <form action="{{route('kecamatan.store')}}" method="POST" >
                         @csrf
                         <div class="row">
@@ -29,14 +38,14 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-4">
                                 <label for="">Kode Kecamatan</label>
                             </div>
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="kode_kecamatan" required>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="row">
                             <div class="col-md-4">
                                 <label for="">Kecamatan</label>

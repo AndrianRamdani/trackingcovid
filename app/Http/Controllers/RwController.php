@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Rw;
 use App\Models\Kelurahan;
 use Illuminate\Http\Request;
-use\Controllers\DB;
+use Controllers\DB;
 
 class RwController extends Controller
 {
@@ -14,9 +14,13 @@ class RwController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-        $rw = Rw::with('kelurahan')->get();
+        $rw = Rw::join('kelurahans','rws.id_kelurahan','=','kelurahans.id')->select('rws.*','nama_kelurahan')->get();
         return view('admin.rw.index', compact('rw'));
     }
 
@@ -40,6 +44,12 @@ class RwController extends Controller
     public function store(Request $request)
     {
         $rw = new Rw;
+        $request->validate([
+            'nama' => 'required|unique:rws,nama|min:2|max:4',
+        ],[
+            'nama.required' => 'Rw required'
+        ]);
+
         $rw->id_kelurahan = $request->id_kelurahan;
         $rw->nama = $request->nama;
         $rw->save();
@@ -82,6 +92,11 @@ class RwController extends Controller
     public function update(Request $request, $id)
     {
         $rw = Rw::findOrFail($id);
+        $request->validate([
+            'nama' => 'required|unique:rws,nama|min:2|max:4',
+        ],[
+            'nama.required' => 'Rw required'
+        ]);
         $rw->id_kelurahan = $request->id_kelurahan;
         $rw->nama = $request->nama;
         $rw->save();

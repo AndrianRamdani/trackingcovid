@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use\Controllers\DB;
+use Controllers\DB;
 use App\Models\Kota;
 use App\Models\Provinsi;
 use Illuminate\Http\Request;
@@ -14,9 +14,13 @@ class KotaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-        $kota = Kota::with('provinsi')->get();
+        $kota = Kota::join('provinsis','kotas.id_provinsi','=','provinsis.id')->select('kotas.*','nama_provinsi')->get();
         return view('admin.kota.index', compact('kota'));
     }
 
@@ -40,6 +44,13 @@ class KotaController extends Controller
     public function store(Request $request)
     {
         $kota = new Kota;
+        $request->validate([
+            'kode_kota' => 'required|int|unique:kotas,kode_kota|alpha_num|numeric',
+            'nama_kota' => 'required|unique:kotas,nama_kota|min:4|regex:/^[a-z A-Z]+$/u|max:20',
+        ],[
+            'kode_kota.required' => 'Kode is required',
+            'nama_kota.required' => 'Kota required'
+        ]);
         $kota->id_provinsi = $request->id_provinsi;
         $kota->kode_kota = $request->kode_kota;
         $kota->nama_kota = $request->nama_kota;
@@ -83,6 +94,13 @@ class KotaController extends Controller
     public function update(Request $request, $id)
     {
         $kota = Kota::findOrFail($id);
+        $request->validate([
+            'kode_kota' => 'required|int|unique:kotas,kode_kota|alpha_num|numeric',
+            'nama_kota' => 'required|unique:kotas,nama_kota|min:4|regex:/^[a-z A-Z]+$/u|max:20',
+        ],[
+            'kode_kota.required' => 'Kode is required',
+            'nama_kota.required' => 'Kota required'
+        ]);
         $kota->id_provinsi = $request->id_provinsi;
         $kota->kode_kota = $request->kode_kota;
         $kota->nama_kota = $request->nama_kota;

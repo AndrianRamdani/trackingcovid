@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
@@ -15,6 +15,15 @@
                     @endif
 
                     You are logged in! --}}
+                    @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
                     <form action="{{route('kecamatan.update', $kecamatan->id)}}" method="POST" >
                         @csrf
                         @method('PUT')
@@ -30,14 +39,14 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-4">
                                 <label for="">Kode Kecamatan</label>
                             </div>
                             <div class="col-md-6">
                                 <input type="text" class="form-control" value="{{$kecamatan->kode_kecamatan}}" name="kode_kecamatan" required>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="row">
                             <div class="col-md-4">
                                 <label for="">Kecamatan</label>
