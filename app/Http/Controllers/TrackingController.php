@@ -18,6 +18,10 @@ class TrackingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $tracking = Tracking::with('rw')->get();
@@ -43,6 +47,19 @@ class TrackingController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            // 'kode_kecamatan' => 'required|int|unique:kecamatans,kode_kecamatan|alpha_num|numeric',
+            
+            'jumlah_positif' => 'required|max:10',
+            'jumlah_sembuh' => 'required|max:10',
+            'jumlah_meninggal' => 'required|max:10',
+        ],[
+            // 'kode_kecamatan.required' => 'Kode is required',
+            
+            'jumlah_positif' => 'rw required',
+            'jumlah_sembuh' => 'rw required',
+            'jumlah_meninggal' => 'rw required'
+        ]);
         $tracking = new Tracking;
         $tracking->id_rw = $request->id_rw;
         $tracking->jumlah_positif = $request->jumlah_positif;

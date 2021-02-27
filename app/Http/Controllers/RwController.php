@@ -45,7 +45,7 @@ class RwController extends Controller
     {
         $rw = new Rw;
         $request->validate([
-            'nama' => 'required|unique:rws,nama|min:2|max:4',
+            'nama' => 'required|min:2|max:4',
         ],[
             'nama.required' => 'Rw required'
         ]);
@@ -93,7 +93,7 @@ class RwController extends Controller
     {
         $rw = Rw::findOrFail($id);
         $request->validate([
-            'nama' => 'required|unique:rws,nama|min:2|max:4',
+            'nama' => 'required|min:2|max:4',
         ],[
             'nama.required' => 'Rw required'
         ]);

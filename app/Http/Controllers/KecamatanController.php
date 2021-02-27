@@ -45,14 +45,14 @@ class KecamatanController extends Controller
     {
         $kecamatan = new Kecamatan;
         $request->validate([
-            'kode_kecamatan' => 'required|int|unique:kecamatans,kode_kecamatan|alpha_num|numeric',
+            // 'kode_kecamatan' => 'required|int|unique:kecamatans,kode_kecamatan|alpha_num|numeric',
             'nama_kecamatan' => 'required|unique:kecamatans,nama_kecamatan|regex:/^[a-z A-Z]+$/u|min:4|max:20',
         ],[
             'kode_kecamatan.required' => 'Kode is required',
             'nama_kecamatan.required' => 'kecamatan required'
         ]);
         $kecamatan->id_kota = $request->id_kota;
-        $kecamatan->kode_kecamatan = $request->kode_kecamatan;
+        // $kecamatan->kode_kecamatan = $request->kode_kecamatan;
         $kecamatan->nama_kecamatan = $request->nama_kecamatan;
         $kecamatan->save();
         return redirect()->route('kecamatan.index')
@@ -95,14 +95,14 @@ class KecamatanController extends Controller
     {
         $kecamatan = Kecamatan::findOrFail($id);
         $request->validate([
-            'kode_kecamatan' => 'required|int|unique:kecamatans,kode_kecamatan|alpha_num|numeric',
+            // 'kode_kecamatan' => 'required|int|unique:kecamatans,kode_kecamatan|alpha_num|numeric',
             'nama_kecamatan' => 'required|unique:kecamatans,nama_kecamatan|regex:/^[a-z A-Z]+$/u|min:4|max:20',
         ],[
-            'kode_kecamatan.required' => 'Kode is required',
+            // 'kode_kecamatan.required' => 'Kode is required',
             'nama_kecamatan.required' => 'kecamatan required'
         ]);
         $kecamatan->id_kota = $request->id_kota;
-        $kecamatan->kode_kecamatan = $request->kode_kecamatan;
+        // $kecamatan->kode_kecamatan = $request->kode_kecamatan;
         $kecamatan->nama_kecamatan = $request->nama_kecamatan;
         $kecamatan->save();
         return redirect()->route('kecamatan.index')

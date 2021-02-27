@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('Ini Halaman Login!') }}
+                    {{ __('Data Coronavirus!') }}
                 </div>
             </div>
         </div>

@@ -27,17 +27,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/test',function(){
-    return view('layouts.master');
-});
-Route::get('/test1',function(){
-    return view('layouts.admin');
-});
-Route::get('/front', [App\Http\Controllers\FrontendController::class, 'index'])->name('index');
-Route::get('/', [App\Http\Controllers\FrontendController::class, 'index'])->name('welcome');
-Route::get('/dashboard',function(){
-    return view('admin.dashboard');
-});
+Route::get('/', [App\Http\Controllers\FrontendController::class, 'index'])->name('index');
+// Route::get('/', [App\Http\Controllers\FrontendController::class, 'index'])->name('welcome');
+
     Route::resource('provinsi', ProvinsiController::class);
     Route::resource('kota', KotaController::class);
     Route::resource('kecamatan', KecamatanController::class);

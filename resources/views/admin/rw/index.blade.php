@@ -7,12 +7,17 @@
 
             <div class="card">
                 <div class="card-title"><h4>Rw</h4></div>
-
+                
                 <div class="card-body">
+                    @if (session('message'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('message') }}
+                        </div>
+                    @endif
                     <a href="{{route('rw.create')}}" class="btn btn-primary">
                     Tambah
                     </a>
-                    <table id="row-select" class="display table table-borderd table-hover">
+                        <table id="row-select" class="display fixed_header table table-borderd table-hover">
                         <thead>
                             <th>No</th>
                             <th>Kelurahan</th>
@@ -31,14 +36,14 @@
                                     @csrf
                                     @method('DELETE')
                                     <!-- <a class="btn btn-info" href="{{route('rw.show',$item->id)}}">Show</a> -->
-                                    <a class="btn btn-warning" href="{{route('rw.edit',$item->id)}}">Edit</a>
-                                    <button type="submit" class="btn btn-danger" >Delete</button>
+                                    <a class="btn btn-warning ti-pencil" href="{{route('rw.edit',$item->id)}}">Edit</a>
+                                    <button type="submit" class="btn btn-danger ti-trash" onclick="return confirm('Anda Yakin Ingin Hapus?')">Delete</button>
                                     </form>
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
-                    </table>
+                        </table>
                 </div>
             </div>
         </div>

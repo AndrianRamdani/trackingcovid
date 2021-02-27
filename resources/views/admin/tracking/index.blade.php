@@ -9,6 +9,11 @@
                 <div class="card-title"><h4>Covid</h4></div>
 
                 <div class="card-body">
+                    @if (session('message'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('message') }}
+                        </div>
+                    @endif
                     <a href="{{route('tracking.create')}}" class="btn btn-primary">
                     Tambah
                     </a>
@@ -43,8 +48,8 @@
                                 <form action="{{route('tracking.destroy',$item->id)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <a class="btn btn-warning" href="{{route('tracking.edit',$item->id)}}">Edit</a>
-                                    <button type="submit" class="btn btn-danger" >Delete</button>
+                                    <a class="btn btn-warning ti-pencil" href="{{route('tracking.edit',$item->id)}}">Edit</a>
+                                    <button type="submit" class="btn btn-danger ti-trash" onclick="return confirm('Anda Yakin Ingin Hapus?')"">Delete</button>
                                     </form>
                                 </td>
                             </tr>

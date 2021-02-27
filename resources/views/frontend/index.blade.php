@@ -16,8 +16,8 @@ The above copyright notice and this permission notice shall be included in all c
 
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="{{asset('frontend/img/apple-icon.png')}}">
-  <link rel="icon" type="image/png" href="{{asset('frontend/img/favicon.png')}}">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{asset('frontend/img/covid.png')}}">
+  <link rel="icon" type="image/png" href="{{asset('frontend/img/covid.png')}}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
     Covid
@@ -37,7 +37,7 @@ The above copyright notice and this permission notice shall be included in all c
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="#">
-          Coronavirus </a>
+         Lawan Coronavirus </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="sr-only">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
@@ -48,69 +48,99 @@ The above copyright notice and this permission notice shall be included in all c
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="http://127.0.0.1:8000/">
                 Home
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="#indo">
+              Indonesia
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#global">
+              Global
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">
+              Information
+            </a>
+          </li>
+          {{-- <li class="nav-item">
             <a class="nav-link" href="">
               About
             </a>
-          </li>
+          </li> --}}
         </ul>
       </div>
     </div>
   </nav>
-  <div class="page-header header-filter clear-filter purple-filter" data-parallax="true" style="background-image: url({{asset('frontend/img/bg2.jpg')}});">
+  <div class="page-header header-filter clear-filter purple-filter" data-parallax="true" style="background-image: url({{asset('frontend/img/kopit.png')}});">
     <div class="container">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
           <div class="brand">
             <h1>Lawan Covid.</h1>
+            <br>
             <h3>Coronavirus Global & Indonesia Live Data.</h3>
           </div>
         </div>
       </div>
-      <div class="container counts" id="counts">
-
-            <div class="row">
-
-            <div class="col-lg-4 col-md-8 mt-5 mt-md-0">
-                <div class="count-box">
-                <p class="count-box">Positif</p>
-                <span data-toggle="counter-up"><?php echo $positif['value'] ?></span>
-                <p class="count-box">Orang</p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-8 mt-5 mt-md-0">
-                <div class="count-box">
-                <p class="count-box">Sembuh</p>
-                <span data-toggle="counter-up"><?php echo $sembuh['value'] ?></span>
-                <p class="count-box">Orang</p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-8 mt-5 mt-lg-0">
-                <div class="count-box">
-                <p class="count-box">Meninggal</p>
-                <span data-toggle="counter-up"><?php echo $meninggal['value'] ?></span>
-                <p class="count-box">Orang</p>
-                </div>
-            </div>
-
-        </div>
-        <div class="space-50"></div>
-        <div class="col text-center">
-            <h6><p>Update terakhir : {{ $tanggal }}</p></h6>
-        </div>
-    </div>
+      
     </div>
   </div>
   <div class="main main-raised">
-    <div class="section section-basic">
-      <div class="container">
-        <div class="row row-cards">
+    <div class="container counts" id="counts">
+
+      <div class="row">
+
+      <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
+          <div class="count-box">
+          <h4>POSITIF</h4>
+         
+          <h3 data-toggle="counter-up"><?php echo $positif['value'] ?></h3>
+         
+          <p class="count-box">Orang</p>
+          </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
+          <div class="count-box">
+          <h4>SEMBUH</h4>
+          
+          <h3 data-toggle="counter-up"><?php echo $sembuh['value'] ?></h3>
+          
+          <p class="count-box">Orang</p>
+          </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+          <div class="count-box">
+          <h4>MENINGGAL</h4>
+          
+          <h3 data-toggle="counter-up"><?php echo $meninggal['value'] ?></h3>
+          
+          <p class="count-box">Orang</p>
+          </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+        <div class="count-box">
+        <h4>INDONESIA</h4>
+        <h5 data-toggle="counter-up"><b>{{$posi}}</b>&nbsp; POSITIF,<b>{{$sem}}</b>&nbsp; SEMBUH,<b>{{$meni}}</b>&nbsp;MENINGGAL</h5>
+        </div>
+    </div>
+
+  </div>
+  <div class="space-50"></div>
+  <div class="col text-center">
+      <h6><p>Update terakhir : {{ $tanggal }}</p></h6>
+  </div>
+</div>
+    <div  class="section section-basic">
+      <div  class="container">
+        <div id ="indo" class="row row-cards">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-14">
                         <div class="card">
                             <div class="card-header ">
@@ -130,14 +160,20 @@ The above copyright notice and this permission notice shall be included in all c
                                             </tr>
                                         </thead>
                                         <tbody>
+                                          @php
+                                            $no= 1;
+                                          @endphp
+                                          @foreach($provinsi as $tampil)
+                                           
                                             <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td>{{$no++}}</td>
+                                                <td>{{$tampil->nama_provinsi}}</td>
+                                                <td>{{number_format($tampil->jumlah_positif)}}</td>
+                                                <td>{{number_format($tampil->jumlah_sembuh)}}</</td>
+                                                <td>{{number_format($tampil->jumlah_meninggal)}}</</td>
                                             </tr>
-                                        </tbody>
+                                        </tbody> 
+                                        @endforeach
                                     </table>
                                 </div>
                             </div>
@@ -145,7 +181,7 @@ The above copyright notice and this permission notice shall be included in all c
                     </div>
                 </div>
         <div class="space-50"></div>
-        <div class="row row-cards">
+        <div id ="global" class="row row-cards">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-14">
                         <div class="card">
                             <div class="card-header ">
@@ -190,53 +226,50 @@ The above copyright notice and this permission notice shall be included in all c
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Layanan</h2>
-          <h3>Berikut <span>Layanan</span></h3>
-          <p>beberapa lembaga mengenai tentang coronavirus</p>
+          <h2>Beberapa lembaga mengenai tentang coronavirus</h2>
+        
         </div>
 
         <div class="row">
-          <div class="col-lg-3  d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-out" data-aos-delay="100">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="https://www.unicef.org/indonesia/id/coronavirus">
-                Novel Coronavirus (COVID-19)</a></h4>
-              <p>Hal-hal yang perlu anda ketahui</p><br>
-              <p>Unicef</p>
+          <div class="col-md-12 col-xl-6">
+            <a href="https://www.unicef.org/indonesia/id/coronavirus">
+            <div class="card text-white bg-un">
+              <div class="card-body">
+                <h3 class="card-title">Novel coronavirus (COVID-19): Hal-hal yang perlu Anda ketahui</h3>
+                <p class="card-text">Unicef Indonesia</p>
+              </div>
             </div>
-          </div>
-
-          <div class="col-lg-3  d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-out" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="https://www.kompas.com/tren/read/2020/03/03/183500265/infografik-daftar-100-rumah-sakit-rujukan-penanganan-virus-corona">
-                Daftar Rumah Sakit</a></h4>
-              <p>Daftar 100 rumah sakit di Indoneis rujukan penanganan virus corona</p><br>
-              <p>Kompas</p>
+          </div></a><!-- COL END -->
+          <div class="col-md-12 col-xl-6">
+            <a href="https://jeo.kompas.com/daftar-rumah-sakit-rujukan-per-provinsi-dan-nomor-kontaknya-untuk-wabah-corona">
+            <div class="card text-white bg-kom">
+              <div class="card-body">
+                <h3 class="card-title">Daftar Rumah Sakit Rujukan Penanganan Virus Corona</h3>
+                <p class="card-text">Kompas</p>
+              </div>
             </div>
-          </div>
-
-          <div class="col-lg-3  d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-out" data-aos-delay="300">
-            <div class="icon-box">
-              <div class="icon"><i img=""></i></div>
-              <h4><a href="https://infeksiemerging.kemkes.go.id/">
-                Media Informasi</a></h4>
-              <p>Media informasi resmi penyakit Infeksi Emerging</p><br>
-              <p>Kementrian Kesehatan</p>
+          </div></a><!-- COL END -->
+          <div class="col-md-12 col-xl-6">
+            <a href="https://infeksiemerging.kemkes.go.id/">
+            <div class="card text-white bg-kes">
+              <div class="card-body">
+                <h3 class="card-title">Media Informasi Resmi Penyakit Infeksi Emerging</h3>
+                <p class="card-text">Kementrian Kesehatan </p>
+              </div>
             </div>
-          </div>
-
-          <div class="col-lg-3 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-out" data-aos-delay="300">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-first-aid"></i></div>
-              <h4><a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public">
-                Coronavirus Disease(COVID-19)</a></h4>
-              <p>Coronavirus Disease advice for the public</p><br>
-              <p>WHO</p>
+          </div></a><!-- COL END -->
+          <div class="col-md-12 col-xl-6">
+            <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public">
+            <div class="card text-white bg-who">
+              <div class="card-body">
+                <h3 class="card-title">Coronavirus Disease (COVID-19) Advice for The Public</h3>
+                <p class="card-text">WHO</p>
+              </div>
             </div>
-          </div>
-        </div>
+          </div></a><!-- COL END -->
+          
 
+        
       </div>
     </section>
         <div class="space-70"></div>
@@ -330,7 +363,7 @@ The above copyright notice and this permission notice shall be included in all c
     </section>
       </div>
     </div>
-
+    
   <footer class="footer" data-background-color="black">
     <div class="container">
       <!-- <nav class="float-left">

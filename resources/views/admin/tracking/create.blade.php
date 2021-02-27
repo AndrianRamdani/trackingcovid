@@ -8,13 +8,11 @@
                 <div class="card-header">Kasus Covid-19</div>
 
                 <div class="card-body">
-                    {{-- @if (session('status'))
+                    @if (session('message'))
                         <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                            {{ session('message') }}
                         </div>
                     @endif
-
-                    You are logged in! --}}
                     @if (count($errors) > 0)
                             <div class="alert alert-danger">
                                 <ul>

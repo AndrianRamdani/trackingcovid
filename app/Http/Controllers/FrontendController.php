@@ -17,20 +17,46 @@ class FrontendController extends Controller
 {
     public function index()
     {
+        // positif
         $datapositif = file_get_contents("https://api.kawalcorona.com/positif");
         $positif = json_decode($datapositif, TRUE);
+        // sembuh
         $datasembuh = file_get_contents("https://api.kawalcorona.com/sembuh");
         $sembuh = json_decode($datasembuh, TRUE);
+        // meninggal
         $datameninggal = file_get_contents("https://api.kawalcorona.com/meninggal");
         $meninggal = json_decode($datameninggal, TRUE);
-        $dataid = file_get_contents("https://api.kawalcorona.com/indonesia");
-        $id = json_decode($dataid, TRUE);
-        $dataidprovinsi = file_get_contents("https://api.kawalcorona.com/indonesia/provinsi");
-        $idprovinsi = json_decode($dataidprovinsi, TRUE);
+        // global
         $datadunia= file_get_contents("https://api.kawalcorona.com/");
         $dunia = json_decode($datadunia, TRUE);
-        $tanggal = Carbon::now()->format('D d-M-Y');
 
-        return view('frontend.index', compact('positif','sembuh','meninggal','dunia','tanggal'));
+        $posi = DB::table('rws')
+        ->select('trackings.jumlah_positif','trackings.jumlah_meninggal','trackings.jumlah_sembuh')->join('trackings',
+                'rws.id', '=', 'trackings.id_rw')->sum('trackings.jumlah_positif');
+        $meni= DB::table('rws')
+        ->select('trackings.jumlah_positif','trackings.jumlah_meninggal','trackings.jumlah_sembuh')->join('trackings',
+                'rws.id', '=', 'trackings.id_rw')->sum('trackings.jumlah_meninggal');
+        $sem = DB::table('rws')
+        ->select('trackings.jumlah_positif','trackings.jumlah_meninggal','trackings.jumlah_sembuh')->join('trackings',
+                'rws.id', '=', 'trackings.id_rw')->sum('trackings.jumlah_sembuh');
+
+        
+        $tanggal = Carbon::now()->format('D d-M-Y ');
+
+        // provinsi
+        $provinsi = DB::table('provinsis')
+                ->join('kotas','kotas.id_provinsi', '=', 'provinsis.id')
+                ->join('kecamatans','kecamatans.id_kota', '=', 'kotas.id')
+                ->join('kelurahans','kelurahans.id_kecamatan', '=', 'kecamatans.id')
+                ->join('rws','rws.id_kelurahan', '=', 'kelurahans.id')
+                ->join('trackings','trackings.id_rw', '=', 'rws.id')
+                ->select('nama_provinsi',
+                    DB::raw('SUM(trackings.jumlah_positif) as jumlah_positif'),
+                    DB::raw('SUM(trackings.jumlah_meninggal) as jumlah_meninggal'),
+                    DB::raw('SUM(trackings.jumlah_sembuh) as jumlah_sembuh'))
+                ->groupby('nama_provinsi')->orderBy('nama_provinsi','ASC')
+                ->get();
+
+        return view('frontend.index', compact('positif','sembuh','meninggal','dunia','tanggal','provinsi','posi','sem','meni'));
     }
 }
