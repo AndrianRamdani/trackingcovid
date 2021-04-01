@@ -93,22 +93,26 @@
     <script src="{{asset('assets/js/lib/owl-carousel/owl.carousel.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/owl-carousel/owl.carousel-init.js')}}"></script>
     <!-- scripit init-->
-    <script src="{{asset('assets/js/dashboard2.js')}}"></script>
+    {{-- <script src="{{asset('assets/js/dashboard2.js')}}"></script> --}}
     <!-- datatable -->
     <script src="{{asset('assets/js/lib/data-table/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/datatables.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/dataTables.buttons.min.js')}}"></script>
-    <script src="{{asset('assets/js/lib/data-table/jszip.min.js')}}"></script>
+    {{-- <script src="{{asset('assets/js/lib/data-table/jszip.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/pdfmake.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/vfs_fonts.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/buttons.html5.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/buttons.print.min.js')}}"></script>
     <script src="{{asset('assets/js/lib/data-table/buttons.colVis.min.js')}}"></script>
-    <script src="{{asset('assets/js/lib/data-table/datatables-init.js')}}"></script>
+    <script src="{{asset('assets/js/lib/data-table/datatables-init.js')}}"></script> --}}
     @yield('js')
     <script type="text/javascript">
             $(document).ready( function () {
                 $('#row-select').DataTable();
+
+            } );
+            $(document).ready( function () {
+                $('#global').DataTable();
 
             } );
 </script>

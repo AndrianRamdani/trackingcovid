@@ -11,7 +11,7 @@
         </div>
         <div class="col-md-6">
             <label for="positif">Jumlah Positif</label>
-            <input type="text" value="@if(isset($tracking1)){{$tracking1->jumlah_positif}}@endif" class="form-control" name="jumlah_positif" required>
+            <input type="number" min="0" value="@if(isset($tracking1)){{$tracking1->jumlah_positif}}@endif" class="form-control" name="jumlah_positif" required>
         </div>
     </div> 
 
@@ -29,7 +29,7 @@
             </div>
             <div class="col-md-6">
                 <label for="meninggal">Jumlah Meninggal</label>
-                <input type="text" class="form-control" value="@if(isset($tracking1)){{$tracking1->jumlah_meninggal}}@endif" name="jumlah_meninggal" required>
+                <input type="number" min="0" class="form-control" value="@if(isset($tracking1)){{$tracking1->jumlah_meninggal}}@endif" name="jumlah_meninggal" required>
             </div>
         </div>
         <div class="form-group row ">
@@ -46,7 +46,7 @@
             </div>
             <div class="col-md-6">
                 <label for="sembuh">Jumlah Sembuh</label>
-                <input type="text" class="form-control" value="@if(isset($tracking1)){{$tracking1->jumlah_sembuh}}@endif"  name="jumlah_sembuh" required>
+                <input type="number" min="0" class="form-control" value="@if(isset($tracking1)){{$tracking1->jumlah_sembuh}}@endif"  name="jumlah_sembuh" required>
             </div>
         </div>
         <div class="form-group row ">

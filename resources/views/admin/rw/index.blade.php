@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
 
             <div class="card">
                 <div class="card-title"><h4>Rw</h4></div>
@@ -17,7 +17,7 @@
                     <a href="{{route('rw.create')}}" class="btn btn-primary">
                     Tambah
                     </a>
-                        <table id="row-select" class="display fixed_header table table-borderd table-hover">
+                        <table id="row-select" class="display fixed_header table table-borderd table-hover table-responsive">
                         <thead>
                             <th>No</th>
                             <th>Kelurahan</th>

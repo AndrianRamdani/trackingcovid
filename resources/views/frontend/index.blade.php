@@ -30,13 +30,14 @@ The above copyright notice and this permission notice shall be included in all c
   <link href="{{asset('frontend/css/material-kit.css?v=2.0.7')}}" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{asset('frontend/demo/demo.css')}}" rel="stylesheet" /> 
+  <script src="https://kit.fontawesome.com/9afa864250.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="index-page sidebar-collapse">
   <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="http://127.0.0.1:8000/">
          Lawan Coronavirus </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="sr-only">Toggle navigation</span>
@@ -133,10 +134,10 @@ The above copyright notice and this permission notice shall be included in all c
     </div>
 
   </div>
-  <div class="space-50"></div>
+  {{-- <div class="space-50"></div>
   <div class="col text-center">
       <h6><p>Update terakhir : {{ $tanggal }}</p></h6>
-  </div>
+  </div> --}}
 </div>
     <div  class="section section-basic">
       <div  class="container">
@@ -148,7 +149,7 @@ The above copyright notice and this permission notice shall be included in all c
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive service">
-                                    <table class="table table-dark fixed_header table-bordered table-hover mb-0 text-nowrap css-serial">
+                                    <table class="table table-dark table-bordered table-hover mb-0 text-nowrap css-serial">
                                         <thead>
                                             <tr>
                                             <tr>
@@ -166,11 +167,11 @@ The above copyright notice and this permission notice shall be included in all c
                                           @foreach($provinsi as $tampil)
                                            
                                             <tr>
-                                                <td>{{$no++}}</td>
-                                                <td>{{$tampil->nama_provinsi}}</td>
-                                                <td>{{number_format($tampil->jumlah_positif)}}</td>
-                                                <td>{{number_format($tampil->jumlah_sembuh)}}</</td>
-                                                <td>{{number_format($tampil->jumlah_meninggal)}}</</td>
+                                                <td><?php echo $no++?></td>
+                                                <td><?php echo $tampil->nama_provinsi?></td>
+                                                <td><?php echo number_format($tampil->jumlah_positif)?></td>
+                                                <td><?php echo number_format($tampil->jumlah_sembuh)?></</td>
+                                                <td><?php echo number_format($tampil->jumlah_meninggal)?></</td>
                                             </tr>
                                         </tbody> 
                                         @endforeach
@@ -271,7 +272,7 @@ The above copyright notice and this permission notice shall be included in all c
 
         
       </div>
-    </section>
+    {{-- </section>
         <div class="space-70"></div>
         <section id="faq" class="faq section-bg">
       <div class="container" data-aos="fade-up">
@@ -285,7 +286,7 @@ The above copyright notice and this permission notice shall be included in all c
         <ul class="faq-list" data-aos="fade-up" data-aos-delay="100">
 
           <li>
-            <a data-toggle="collapse" class="" href="#faq1">Apa itu Coronavirus atau Covid-19? <i class="icofont-simple-up"></i></a>
+            <a data-toggle="collapse"  href="#faq1">Apa itu Coronavirus atau Covid-19?</a>
             <div id="faq1" class="collapse" data-parent=".faq-list">
               <p>
               Virus korona adalah sebutan untuk jenis virus yang dapat menyebabkan penyakit pada hewan dan manusia. 
@@ -295,7 +296,7 @@ The above copyright notice and this permission notice shall be included in all c
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq2" class="collapsed">Bagaimana COVID-19 menular? <i class="icofont-simple-up"></i></a>
+            <a data-toggle="collapse" href="#faq2" class="collapsed">Bagaimana COVID-19 menular? </a>
             <div id="faq2" class="collapse" data-parent=".faq-list">
               <p>
                 Penularan terjadi melalui droplet (butir-butir tetesan cairan) dari hidung atau mulut yang menyebar saat pembawa virus COVID-19 batuk, bersin atau meler. 
@@ -310,7 +311,7 @@ The above copyright notice and this permission notice shall be included in all c
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq3" class="collapsed">Kita harus bagaimana?  <i class="icofont-simple-up"></i></a>
+            <a data-toggle="collapse" href="#faq3" class="collapsed">Kita harus bagaimana?  </a>
             <div id="faq3" class="collapse" data-parent=".faq-list">
               <p>
                   1. Ketika keluar rumah, pakailah masker. Jika bersin, tutup mulut dan hidung dengan tisu dan buang tisunya sesegera mungkin.  <br>
@@ -322,7 +323,7 @@ The above copyright notice and this permission notice shall be included in all c
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq4" class="collapsed">Jika seseorang terinfeksi virus ini, berapa lama sampai muncul gejala? <i class="icofont-simple-up"></i></a>
+            <a data-toggle="collapse" href="#faq4" class="collapsed">Jika seseorang terinfeksi virus ini, berapa lama sampai muncul gejala? </a>
             <div id="faq4" class="collapse" data-parent=".faq-list">
               <p>
               Masa inkubasi (dari masuknya virus ke dalam tubuh sampai munculnya gejala awal) adalah 1 – 14 hari, dengan rata-rata timbulnya gejala selama 5 hari.
@@ -331,7 +332,7 @@ The above copyright notice and this permission notice shall be included in all c
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq5" class="collapsed">Seberapa banyak pasien yang akan mengalami gejala serius? <i class="icofont-simple-up"></i></a>
+            <a data-toggle="collapse" href="#faq5" class="collapsed">Seberapa banyak pasien yang akan mengalami gejala serius?</a>
             <div id="faq5" class="collapse" data-parent=".faq-list">
               <p>
                 Dari data yang tersedia saat ini, kita belum bisa menyimpulkan secara persis seberapa parah wabah COVID-19 ini. 
@@ -347,7 +348,7 @@ The above copyright notice and this permission notice shall be included in all c
           </li>
 
           <li>
-            <a data-toggle="collapse" href="#faq6" class="collapsed">Apa yang harus saya sampaikan kepada tenaga medis jika saya batuk pilek demam dan sulit bernafas? <i class="icofont-simple-up"></i></a>
+            <a data-toggle="collapse" href="#faq6" class="collapsed">Apa yang harus saya sampaikan kepada tenaga medis jika saya batuk pilek demam dan sulit bernafas? </a>
             <div id="faq6" class="collapse" data-parent=".faq-list">
               <p>
                 1. Riwayat perjalanan (jika ada, ke Tiongkok atau negara-negara yang sudah terjangkit COVID-19, seperti Singapura, Jepang, Korea Selatan, dan Italia) <br>
@@ -360,36 +361,13 @@ The above copyright notice and this permission notice shall be included in all c
         </ul>
 
       </div>
-    </section>
+    </section> --}}
       </div>
     </div>
     
   <footer class="footer" data-background-color="black">
     <div class="container">
-      <!-- <nav class="float-left">
-        <ul>
-          <li>
-            <a href="https://www.creative-tim.com/">
-              Creative Tim
-            </a>
-          </li>
-          <li>
-            <a href="https://www.creative-tim.com/presentation">
-              About Us
-            </a>
-          </li>
-          <li>
-            <a href="https://www.creative-tim.com/blog">
-              Blog
-            </a>
-          </li>
-          <li>
-            <a href="https://www.creative-tim.com/license">
-              Licenses
-            </a>
-          </li>
-        </ul>
-      </nav> -->
+      
       <div class="copyright float-center">
         &copy;
         <script>
@@ -411,6 +389,7 @@ The above copyright notice and this permission notice shall be included in all c
   <!--  Google Maps Plugin    -->
   <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
   <script src="{{asset('frontend/js/material-kit.js?v=2.0.7')}}" type="text/javascript"></script>
+  
   <script>
     $(document).ready(function() {
       //init DateTimePickers

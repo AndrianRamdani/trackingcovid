@@ -2,7 +2,8 @@
         <div class="nano">
             <div class="nano-content">
                 <ul>
-                    <div class="logo"><a href="index.html">
+                    <div class="logo"><a class="c-sidebar-nav-link {{ request()->is('admin/') ? 'c-active' : '' }}"
+                        href="{{ url('/admin') }}">
                             <!-- <img src="../focus/images/logo.png" alt="" /> --><span>Data Coronavirus</span></a></div>
                     <li><a class="sidebar-sub-toggle"><i class="ti-home"></i> Indonesia<span
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
@@ -15,7 +16,11 @@
                             <li><a href="{{route ('tracking.index')}}">Tracking</a></li>
                         </ul>
                     </li>
-
+                    @if (Auth::user()->role == 'Petugas')
+                    @else
+                    <li><a href="{{ route('users.index') }}"><i class="ti-user"></i> User Management<span
+                        class="sidebar-collapse-icon "></span></a>
+                    @endif
                 </ul>
             </div>
         </div>

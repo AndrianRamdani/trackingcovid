@@ -56,9 +56,9 @@ class TrackingController extends Controller
         ],[
             // 'kode_kecamatan.required' => 'Kode is required',
             
-            'jumlah_positif' => 'rw required',
-            'jumlah_sembuh' => 'rw required',
-            'jumlah_meninggal' => 'rw required'
+            'jumlah_positif' => ' required',
+            'jumlah_sembuh' => ' required',
+            'jumlah_meninggal' => ' required'
         ]);
         $tracking = new Tracking;
         $tracking->id_rw = $request->id_rw;
