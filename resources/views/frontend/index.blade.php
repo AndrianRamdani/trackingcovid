@@ -149,7 +149,7 @@ The above copyright notice and this permission notice shall be included in all c
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive service">
-                                    <table class="table table-dark table-bordered table-hover mb-0 text-nowrap css-serial">
+                                    <table class="table table-responsive table-dark table-bordered table-hover mb-0 text-nowrap css-serial">
                                         <thead>
                                             <tr>
                                             <tr>
@@ -190,7 +190,7 @@ The above copyright notice and this permission notice shall be included in all c
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive service">
-                                    <table class="table table-dark fixed_header table-bordered table-hover mb-0 text-nowrap css-serial">
+                                    <table class="table table-dark table-responsive fixed_header table-bordered table-hover mb-0 text-nowrap css-serial">
                                         <thead>
                                             <tr>
                                             <tr>
