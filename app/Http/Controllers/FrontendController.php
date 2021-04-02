@@ -31,14 +31,17 @@ class FrontendController extends Controller
         $dunia = json_decode($datadunia, TRUE);
 
         $posi = DB::table('rws')
-        ->select('trackings.jumlah_positif','trackings.jumlah_meninggal','trackings.jumlah_sembuh')->join('trackings',
-                'rws.id', '=', 'trackings.id_rw')->sum('trackings.jumlah_positif');
+        ->select('trackings.jumlah_positif','trackings.jumlah_meninggal','trackings.jumlah_sembuh')
+        ->join('trackings','rws.id', '=', 'trackings.id_rw')
+        ->sum('trackings.jumlah_positif');
         $meni= DB::table('rws')
-        ->select('trackings.jumlah_positif','trackings.jumlah_meninggal','trackings.jumlah_sembuh')->join('trackings',
-                'rws.id', '=', 'trackings.id_rw')->sum('trackings.jumlah_meninggal');
+        ->select('trackings.jumlah_positif', 'trackings.jumlah_meninggal', 'trackings.jumlah_sembuh')
+        ->join('trackings', 'rws.id', '=', 'trackings.id_rw')
+        ->sum('trackings.jumlah_meninggal');
         $sem = DB::table('rws')
-        ->select('trackings.jumlah_positif','trackings.jumlah_meninggal','trackings.jumlah_sembuh')->join('trackings',
-                'rws.id', '=', 'trackings.id_rw')->sum('trackings.jumlah_sembuh');
+        ->select('trackings.jumlah_positif','trackings.jumlah_meninggal','trackings.jumlah_sembuh')
+        ->join('trackings', 'rws.id', '=', 'trackings.id_rw')
+        ->sum('trackings.jumlah_sembuh');
 
         
         $tanggal = Carbon::now()->format('D d-M-Y ');
