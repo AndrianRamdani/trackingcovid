@@ -45,11 +45,17 @@ class KotaController extends Controller
     {
         $kota = new Kota;
         $request->validate([
-            'kode_kota' => 'required|int|unique:kotas,kode_kota|alpha_num|numeric',
+            'kode_kota' => 'required|unique:kotas,kode_kota|numeric',
             'nama_kota' => 'required|unique:kotas,nama_kota|min:4|regex:/^[a-z A-Z]+$/u|max:20',
         ],[
-            'kode_kota.required' => 'Kode is required',
-            'nama_kota.required' => 'Kota required'
+            'kode_kota.required' => 'Kode Kota tidak boleh kosong',
+            'kode_kota.numeric' => 'Kode Kota tidak boleh menggunakan huruf abjad.',
+            'kode_kota.unique' => 'Kode Kota sudah terdaftar',
+            'nama_kota.required' => 'Nama Kota tidak boleh kosong',
+            'nama_kota.regex' => 'Nama Kota tidak boleh menggunakan angka.',
+            'nama_kota.min' => 'Kode Minimal 4 karakter',
+            'nama_kota.max' => 'Kode maximal 28 karakter',
+            'nama_kota.unique' => 'Nama Kota sudah terdaftar'
         ]);
         $kota->id_provinsi = $request->id_provinsi;
         $kota->kode_kota = $request->kode_kota;
@@ -95,11 +101,17 @@ class KotaController extends Controller
     {
         $kota = Kota::findOrFail($id);
         $request->validate([
-            'kode_kota' => 'required|int|unique:kotas,kode_kota|alpha_num|numeric',
-            'nama_kota' => 'required|unique:kotas,nama_kota|min:4|regex:/^[a-z A-Z]+$/u|max:20',
+            'kode_kota' => 'required|unique:kotas,kode_kota|numeric',
+            'nama_kota' => 'required|unique:kotas,nama_kota|min:4|regex:/^[a-z A-Z]+$/u|max:28',
         ],[
-            'kode_kota.required' => 'Kode is required',
-            'nama_kota.required' => 'Kota required'
+            'kode_kota.required' => 'Kode Kota tidak boleh kosong',
+            'kode_kota.numeric' => 'Kode Kota tidak boleh menggunakan huruf abjad.',
+            'kode_kota.unique' => 'Kode Kota sudah terdaftar',
+            'nama_kota.required' => 'Nama Kota tidak boleh kosong',
+            'nama_kota.regex' => 'Nama Kota tidak boleh menggunakan angka.',
+            'nama_kota.min' => 'Kode Minimal 4 karakter',
+            'nama_kota.max' => 'Kode maximal 28 karakter',
+            'nama_kota.unique' => 'Nama Kota sudah terdaftar'
         ]);
         $kota->id_provinsi = $request->id_provinsi;
         $kota->kode_kota = $request->kode_kota;

@@ -48,8 +48,12 @@ class KecamatanController extends Controller
             // 'kode_kecamatan' => 'required|int|unique:kecamatans,kode_kecamatan|alpha_num|numeric',
             'nama_kecamatan' => 'required|unique:kecamatans,nama_kecamatan|regex:/^[a-z A-Z]+$/u|min:4|max:20',
         ],[
-            'kode_kecamatan.required' => 'Kode is required',
-            'nama_kecamatan.required' => 'kecamatan required'
+            // 'kode_kecamatan.required' => 'Kode is required',
+            'nama_kecamatan.required' => 'Nama Kecamatan tidak boleh kosong',
+            'nama_kecamatan.regex' => 'Nama Kecamatan tidak boleh menggunakan angka.',
+            'nama_kecamatan.min' => 'Kode Minimal 4 karakter',
+            'nama_kecamatan.max' => 'Kode maximal 28 karakter',
+            'nama_kecamatan.unique' => 'Nama Kecamatan sudah terdaftar'
         ]);
         $kecamatan->id_kota = $request->id_kota;
         // $kecamatan->kode_kecamatan = $request->kode_kecamatan;
@@ -96,10 +100,14 @@ class KecamatanController extends Controller
         $kecamatan = Kecamatan::findOrFail($id);
         $request->validate([
             // 'kode_kecamatan' => 'required|int|unique:kecamatans,kode_kecamatan|alpha_num|numeric',
-            'nama_kecamatan' => 'required|unique:kecamatans,nama_kecamatan|regex:/^[a-z A-Z]+$/u|min:4|max:20',
+            'nama_kecamatan' => 'required|unique:kecamatans,nama_kecamatan|regex:/^[a-z A-Z]+$/u|min:4|max:28',
         ],[
             // 'kode_kecamatan.required' => 'Kode is required',
-            'nama_kecamatan.required' => 'kecamatan required'
+            'nama_kecamatan.required' => 'Nama Kecamatan tidak boleh kosong',
+            'nama_kecamatan.regex' => 'Nama Kecamatan tidak boleh menggunakan angka.',
+            'nama_kecamatan.min' => 'Kode Minimal 4 karakter',
+            'nama_kecamatan.max' => 'Kode maximal 28 karakter',
+            'nama_kecamatan.unique' => 'Nama Kecamatan sudah terdaftar'
         ]);
         $kecamatan->id_kota = $request->id_kota;
         // $kecamatan->kode_kecamatan = $request->kode_kecamatan;

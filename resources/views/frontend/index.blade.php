@@ -39,15 +39,15 @@ The above copyright notice and this permission notice shall be included in all c
       <div class="navbar-translate">
         <a class="navbar-brand" href="http://127.0.0.1:8000/">
          Lawan Coronavirus </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+        {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="sr-only">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
           <span class="navbar-toggler-icon"></span>
           <span class="navbar-toggler-icon"></span>
-        </button>
+        </button> --}}
       </div>
       <div class="collapse navbar-collapse">
-        <ul class="navbar-nav ml-auto">
+        {{-- <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="http://127.0.0.1:8000/">
                 Home
@@ -68,12 +68,12 @@ The above copyright notice and this permission notice shall be included in all c
               Information
             </a>
           </li>
-          {{-- <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link" href="">
               About
             </a>
-          </li> --}}
-        </ul>
+          </li>
+        </ul> --}}
       </div>
     </div>
   </nav>
@@ -149,7 +149,7 @@ The above copyright notice and this permission notice shall be included in all c
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive service">
-                                    <table class="table table-responsive table-dark table-bordered table-hover mb-0 text-nowrap css-serial">
+                                    <table class="table  table-dark table-bordered tbl-header table-hover mb-0 text-nowrap css-serial">
                                         <thead>
                                             <tr>
                                             <tr>
@@ -190,7 +190,7 @@ The above copyright notice and this permission notice shall be included in all c
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive service">
-                                    <table class="table table-dark table-responsive fixed_header table-bordered table-hover mb-0 text-nowrap css-serial">
+                                    <table class="table table-dark table-responsive fixed-header table-bordered ">
                                         <thead>
                                             <tr>
                                             <tr>
@@ -222,6 +222,7 @@ The above copyright notice and this permission notice shall be included in all c
                         </div>
                     </div>
                 </div>
+      </div>
         <div class="space-70"></div>
         <section id="services" class="services">
       <div class="container" data-aos="fade-up">

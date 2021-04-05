@@ -45,9 +45,13 @@ class KelurahanController extends Controller
     {
         $kelurahan = new Kelurahan;
         $request->validate([
-            'nama_kelurahan' => 'required|unique:kelurahans,nama_kelurahan|regex:/^[a-z A-Z]+$/u|min:4|max:20',
+            'nama_kelurahan' => 'required|unique:kelurahans,nama_kelurahan|regex:/^[a-z A-Z]+$/u|min:4|max:28',
         ],[
-            'nama_kelurahan.required' => 'Kelurahan required'
+            'nama_kelurahan.required' => 'Nama Kelurahan tidak boleh kosong',
+            'nama_kelurahan.regex' => 'Nama Kelurahan tidak boleh menggunakan angka.',
+            'nama_kelurahan.min' => 'Kode Minimal 4 karakter',
+            'nama_kelurahan.max' => 'Kode maximal 28 karakter',
+            'nama_kelurahan.unique' => 'Nama Kelurahan sudah terdaftar'
         ]);
 
         $kelurahan->id_kecamatan = $request->id_kecamatan;
@@ -95,7 +99,11 @@ class KelurahanController extends Controller
         $request->validate([
             'nama_kelurahan' => 'required|unique:kelurahans,nama_kelurahan|regex:/^[a-z A-Z]+$/u|min:4|max:20',
         ],[
-            'nama_kelurahan.required' => 'Kelurahan required'
+            'nama_kelurahan.required' => 'Nama Kelurahan tidak boleh kosong',
+            'nama_kelurahan.regex' => 'Nama Kelurahan tidak boleh menggunakan angka.',
+            'nama_kelurahan.min' => 'Kode Minimal 4 karakter',
+            'nama_kelurahan.max' => 'Kode maximal 28 karakter',
+            'nama_kelurahan.unique' => 'Nama Kelurahan sudah terdaftar'
         ]);
         $kelurahan->id_kecamatan = $request->id_kecamatan;
         $kelurahan->nama_kelurahan = $request->nama_kelurahan;

@@ -45,9 +45,12 @@ class RwController extends Controller
     {
         $rw = new Rw;
         $request->validate([
-            'nama' => 'required|min:2|max:4',
+            'nama' => 'required|min:2|numeric|max:4',
         ],[
-            'nama.required' => 'Rw required'
+            'nama.required' => 'Nama Rw tidak boleh kosong',
+            'nama.numeric' => 'Nama Rw tidak boleh menggunakan huruf abjad.',
+            'nama.min' => 'Nama Rw minimal 2 Karakter',
+            'nama.max' => 'Nama Rw maximal 4 Karakter'
         ]);
 
         $rw->id_kelurahan = $request->id_kelurahan;
@@ -93,9 +96,12 @@ class RwController extends Controller
     {
         $rw = Rw::findOrFail($id);
         $request->validate([
-            'nama' => 'required|min:2|max:4',
+            'nama' => 'required|min:2|numeric|max:4',
         ],[
-            'nama.required' => 'Rw required'
+            'nama.required' => 'Nama Rw tidak boleh kosong',
+            'nama.numeric' => 'Nama Rw tidak boleh menggunakan huruf abjad.',
+            'nama.min' => 'Nama Rw minimal 2 Karakter',
+            'nama.max' => 'Nama Rw maximal 4 Karakter'
         ]);
         $rw->id_kelurahan = $request->id_kelurahan;
         $rw->nama = $request->nama;

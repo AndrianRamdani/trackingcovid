@@ -43,11 +43,17 @@ class ProvinsiController extends Controller
     {
         $provinsi = new Provinsi;
         $request->validate([
-            'kode_provinsi' => 'required|int|unique:provinsis,kode_provinsi|alpha_num|numeric',
-            'nama_provinsi' => 'required|unique:provinsis,nama_provinsi|regex:/^[a-z A-Z]+$/u|min:4|max:20',
+            'kode_provinsi' => 'required|unique:provinsis,kode_provinsi|numeric',
+            'nama_provinsi' => 'required|unique:provinsis,nama_provinsi|regex:/^[a-z A-Z]+$/u|min:4|max:30',
         ],[
-            'kode_provinsi.required' => 'Kode is required',
-            'nama_provinsi.required' => 'Provinsi required'
+            'kode_provinsi.required' => 'Kode Provinsi tidak boleh kosong',
+            'kode_provinsi.numeric' => 'Kode Provinsi tidak boleh menggunakan huruf abjad.',
+            'kode_provinsi.unique' => 'Kode Provinsi sudah terdaftar',
+            'nama_provinsi.required' => 'Nama Provinsi tidak boleh kosong',
+            'nama_provinsi.regex' => 'Nama Provinsi tidak boleh menggunakan angka.',
+            'nama_provinsi.min' => 'Kode Minimal 4 karakter',
+            'nama_provinsi.max' => 'Kode maximal 30 karakter',
+            'nama_provinsi.unique' => 'Nama Provinsi sudah terdaftar'
         ]);
         $provinsi->kode_provinsi = $request->kode_provinsi;
         $provinsi->nama_provinsi = $request->nama_provinsi;
@@ -91,11 +97,17 @@ class ProvinsiController extends Controller
     {
         $provinsi = Provinsi::findOrFail($id);
         $request->validate([
-            'kode_provinsi' => 'required|int|unique:provinsis,kode_provinsi|alpha_num|numeric',
+            'kode_provinsi' => 'required|unique:provinsis,kode_provinsi|numeric',
             'nama_provinsi' => 'required|unique:provinsis,nama_provinsi|regex:/^[a-z A-Z]+$/u|min:4|max:20',
         ],[
-            'kode_provinsi.required' => 'Kode is required',
-            'nama_provinsi.required' => 'Provinsi required'
+            'kode_provinsi.required' => 'Kode Provinsi tidak boleh kosong',
+            'kode_provinsi.numeric' => 'Kode Provinsi tidak boleh menggunakan huruf abjad.',
+            'kode_provinsi.unique' => 'Kode Provinsi sudah terdaftar',
+            'nama_provinsi.required' => 'Nama Provinsi tidak boleh kosong',
+            'nama_provinsi.regex' => 'Nama Provinsi tidak boleh menggunakan angka.',
+            'nama_provinsi.min' => 'Kode Minimal 4 karakter',
+            'nama_provinsi.max' => 'Kode maximal 20 karakter',
+            'nama_provinsi.unique' => 'Nama Provinsi sudah terdaftar'
         ]);
         $provinsi->kode_provinsi = $request->kode_provinsi;
         $provinsi->nama_provinsi = $request->nama_provinsi;

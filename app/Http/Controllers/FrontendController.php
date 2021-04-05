@@ -44,8 +44,7 @@ class FrontendController extends Controller
         ->sum('trackings.jumlah_sembuh');
 
         
-        $tanggal = Carbon::now()->format('D d-M-Y ');
-
+        $tanggal = Carbon::now()->isoFormat('dddd, D MMMM Y hh:mm:s');
         // provinsi
         $provinsi = DB::table('provinsis')
                 ->join('kotas','kotas.id_provinsi', '=', 'provinsis.id')
