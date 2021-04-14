@@ -53,7 +53,7 @@ class TrackingController extends Controller
             'jumlah_positif' => 'required|numeric|min:1',
             'jumlah_sembuh' => "required|numeric|min:1|max:$positif",
             'jumlah_meninggal' => "required||numeric|min:1|max:$meninggal",
-            'tanggal' => 'required',
+            // 'tanggal' => "required|before:date"
         ], [
             'jumlah_positif.required' => 'Data tidak boleh kosong',
             'jumlah_positif.min' => 'Jumlah positif tidak boleh kurang dari 1',
@@ -63,7 +63,7 @@ class TrackingController extends Controller
             'jumlah_meninggal.required' => 'Data tidak boleh kosong',
             'jumlah_meninggal.min' => 'Jumlah meninggal tidak boleh kurang dari 1',
             'jumlah_meninggal.max' => 'Jumlah meninggal tidak boleh melebihi jumlah Positif atau Sembuh ',
-            'tanggal.required' => 'Data tidak boleh kosong',
+            // 'tanggal.before' => 'Tanggal tidak boleh tanggal besok'
         ]);
         $tracking = new Tracking;
         $tracking->id_rw = $request->id_rw;
@@ -116,7 +116,6 @@ class TrackingController extends Controller
             'jumlah_positif' => 'required|numeric|min:1',
             'jumlah_sembuh' => "required|numeric|min:1|max:$positif",
             'jumlah_meninggal' => "required||numeric|min:1|max:$meninggal",
-            'tanggal' => 'required',
         ], [
             'jumlah_positif.required' => 'Data tidak boleh kosong',
             'jumlah_positif.min' => 'Jumlah positif tidak boleh kurang dari 1',
@@ -126,7 +125,6 @@ class TrackingController extends Controller
             'jumlah_meninggal.required' => 'Data tidak boleh kosong',
             'jumlah_meninggal.min' => 'Jumlah meninggal tidak boleh kurang dari 1',
             'jumlah_meninggal.max' => 'Jumlah meninggal tidak boleh melebihi jumlah Positif atau Sembuh ',
-            'tanggal.required' => 'Data tidak boleh kosong',
         ]);
         $tracking = Tracking::findOrFail($id);
         $tracking->id_rw = $request->id_rw;

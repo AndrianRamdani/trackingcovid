@@ -95,43 +95,69 @@ The above copyright notice and this permission notice shall be included in all c
     <div class="container counts" id="counts">
 
       <div class="row">
-
-      <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-          <div class="count-box">
-          <h4>POSITIF</h4>
-         
-          <h3 data-toggle="counter-up"><?php echo $positif['value'] ?></h3>
-         
-          <p class="count-box">Orang</p>
+        
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="card bg-warning img-card box-primary-shadow">
+              <div class="card-body">
+                  <div class="d-flex">
+                      <div class="text-white">
+                          <p class="text-white mb-0">TOTAL POSITIF</p>
+                          <h2 class="mb-0 number-font"><?php echo $positif['value'] ?></h2>
+                          <p class="text-white mb-0">ORANG</p>
+                      </div>
+                      <div class="ml-auto"> <img src="{{asset('assets/images/sad.png')}}" width="50"
+                              height="50" alt="Positif"> </div>
+                  </div>
+              </div>
           </div>
       </div>
-
-      <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-          <div class="count-box">
-          <h4>SEMBUH</h4>
-          
-          <h3 data-toggle="counter-up"><?php echo $sembuh['value'] ?></h3>
-          
-          <p class="count-box">Orang</p>
+      <div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="card bg-primary img-card box-primary-shadow">
+              <div class="card-body">
+                  <div class="d-flex">
+                      <div class="text-white">
+                          <p class="text-white mb-0">TOTAL SEMBUH</p>
+                          <h2 class="mb-0 number-font"><?php echo $sembuh['value'] ?></h2>
+                          <p class="text-white mb-0">ORANG</p>
+                      </div>
+                      <div class="ml-auto"> <img src="{{asset('assets/images/happy.png')}}" width="50"
+                              height="50" alt="Positif">
+                      </div>
+                  </div>
+              </div>
           </div>
       </div>
-
-      <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-          <div class="count-box">
-          <h4>MENINGGAL</h4>
-          
-          <h3 data-toggle="counter-up"><?php echo $meninggal['value'] ?></h3>
-          
-          <p class="count-box">Orang</p>
+      <div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="card bg-danger img-card box-primary-shadow">
+              <div class="card-body">
+                  <div class="d-flex">
+                      <div class="text-white">
+                          <p class="text-white mb-0">TOTAL MENINGGAL</p>
+                          <h2 class="mb-0 number-font"><?php echo $meninggal['value'] ?></h2>
+                          <p class="text-white mb-0">ORANG</p>
+                      </div>
+                      <div class="ml-auto"> <img src="{{asset('assets/images/cry.png')}}" width="50"
+                              height="50" alt="Positif"> </div>
+                  </div>
+              </div>
           </div>
       </div>
-
-      <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-        <div class="count-box">
-        <h4>INDONESIA</h4>
-        <h5 data-toggle="counter-up"><b>{{$posi}}</b>&nbsp; POSITIF,<b>{{$sem}}</b>&nbsp; SEMBUH,<b>{{$meni}}</b>&nbsp;MENINGGAL</h5>
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="card bg-danger img-card box-primary-shadow">
+            <div class="card-body">
+                <div class="d-flex">
+                    <div class="text-white">
+                        <h2 class="mb-0 number-font">INDONESIA</h2>
+												   
+												<p class="text-white mb-0"><b>{{$posi}}</b> POSITIF,<br> <b>{{$sem}}</b> SEMBUH, <b>{{$meni}}</b> MENINGGAL</p>
+                    </div>
+                    <div class="ml-auto"> <img src="{{asset('assets/images/cry.png')}}" width="50"
+                            height="50" alt="Positif"> </div>
+                </div>
+            </div>
         </div>
     </div>
+
 
   </div>
   {{-- <div class="space-50"></div>
@@ -149,7 +175,7 @@ The above copyright notice and this permission notice shall be included in all c
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive service">
-                                    <table class="table  table-dark table-bordered tbl-header table-hover mb-0 text-nowrap css-serial">
+                                    <table class="table table-bordered fixed-header table-hover mb-0 text-nowrap css-serial">
                                         <thead>
                                             <tr>
                                             <tr>
@@ -173,8 +199,8 @@ The above copyright notice and this permission notice shall be included in all c
                                                 <td><?php echo number_format($tampil->jumlah_sembuh)?></</td>
                                                 <td><?php echo number_format($tampil->jumlah_meninggal)?></</td>
                                             </tr>
+                                            @endforeach
                                         </tbody> 
-                                        @endforeach
                                     </table>
                                 </div>
                             </div>
@@ -190,7 +216,7 @@ The above copyright notice and this permission notice shall be included in all c
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive service">
-                                    <table class="table table-dark table-responsive fixed-header table-bordered ">
+                                    <table class="table  table-responsive fixed-header table-bordered ">
                                         <thead>
                                             <tr>
                                             <tr>

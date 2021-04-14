@@ -168,37 +168,7 @@ td{
 .faq .faq-list a.collapsed i::before {
   content: "\eab2" !important;
 }
-/* fixed header */
- .fixed-header1{
-  width: 400px;
-  table-layout: fixed;
-  border-collapse: collapse;
-}
 
-.fixed-header1 tbody{
-overflow: auto;
-height: 100px;
-}
-
-.fixed-header1 thead {
-background: black;
-color:#fff;
-}
-
-.fixed-header1 th, .fixed-header1 td {
-padding: 5px;
-text-align: left;
-width: 200px;
-}
-.fixed-header1 tbody{
-  display:block;
-  overflow:auto;
-  height:850px;
-  width:100%;
-}
-.fixed-header1 thead tr{
-  display:block;
-}
  /* fixed header */
  .fixed-header{
   width: 400px;
@@ -219,12 +189,12 @@ color:#fff;
 .fixed-header th, .fixed-header td {
 padding: 5px;
 text-align: left;
-width: 200px;
+width: 300px;
 }
 .fixed-header tbody{
   display:block;
   overflow:auto;
-  height:850px;
+  height:400px;
   width:100%;
 }
 .fixed-header thead tr{

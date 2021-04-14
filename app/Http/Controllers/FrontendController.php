@@ -30,17 +30,11 @@ class FrontendController extends Controller
         $datadunia= file_get_contents("https://api.kawalcorona.com/");
         $dunia = json_decode($datadunia, TRUE);
 
-        $posi = DB::table('rws')
-        ->select('trackings.jumlah_positif','trackings.jumlah_meninggal','trackings.jumlah_sembuh')
-        ->join('trackings','rws.id', '=', 'trackings.id_rw')
+        $posi = DB::table('trackings')
         ->sum('trackings.jumlah_positif');
-        $meni= DB::table('rws')
-        ->select('trackings.jumlah_positif', 'trackings.jumlah_meninggal', 'trackings.jumlah_sembuh')
-        ->join('trackings', 'rws.id', '=', 'trackings.id_rw')
+        $meni= DB::table('trackings')
         ->sum('trackings.jumlah_meninggal');
-        $sem = DB::table('rws')
-        ->select('trackings.jumlah_positif','trackings.jumlah_meninggal','trackings.jumlah_sembuh')
-        ->join('trackings', 'rws.id', '=', 'trackings.id_rw')
+        $sem = DB::table('trackings')
         ->sum('trackings.jumlah_sembuh');
 
         

@@ -28,9 +28,9 @@ class AdminController extends Controller
 
         $provinsi = DB::table('provinsis')
             ->select('nama_provinsi',
-                DB::raw('sum(trackings.jumlah_positif) as positif'),
-                DB::raw('sum(trackings.jumlah_sembuh) as sembuh'),
-                DB::raw('sum(trackings.jumlah_meninggal) as meninggal'))
+                DB::raw('sum(trackings.jumlah_positif) as jumlah_positif'),
+                DB::raw('sum(trackings.jumlah_sembuh) as jumlah_sembuh'),
+                DB::raw('sum(trackings.jumlah_meninggal) as jumlah_meninggal'))
             ->join('kotas', 'provinsis.id', '=', 'kotas.id_provinsi')
             ->join('kecamatans', 'kotas.id', '=', 'kecamatans.id_kota')
             ->join('kelurahans', 'kecamatans.id', '=', 'kelurahans.id_kecamatan')

@@ -33,7 +33,6 @@
                                         <form action="{{route('provinsi.destroy',$item->id)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <!-- <a class="btn btn-info" href="{{route('provinsi.show',$item->id)}}">Show</a> -->
                                         <a class="btn btn-warning ti-pencil" href="{{route('provinsi.edit',$item->id)}}">Edit</a>
                                         <button type="submit" class="btn btn-danger ti-trash" onclick="return confirm('Anda Yakin Ingin Hapus?')">Delete</button>
                                         </form>

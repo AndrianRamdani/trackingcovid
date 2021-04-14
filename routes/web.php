@@ -10,6 +10,7 @@ use App\Http\Controllers\TrackingController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -27,6 +28,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resource('rw', RwController::class);
     Route::resource('tracking', TrackingController::class);
     Route::resource('users', UserController::class)->middleware('admin');
+
+    Route::get('report-provinsi', [ReportController::class, 'index']);
+    Route::post('report-provinsi', [ReportController::class, 'ReportProvinsi']);
+    Route::get('pdfreport', [ReportController::class, 'cetak_pdf'])->name('pdfreport');
 });
     
 Route::get('/', [FrontendController::class, 'index']);
