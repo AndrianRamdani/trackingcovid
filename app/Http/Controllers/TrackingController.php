@@ -24,7 +24,7 @@ class TrackingController extends Controller
     }
     public function index()
     {
-        $tracking = Tracking::with('rw')->get();
+        $tracking = Tracking::with('rw.kelurahan.kecamatan.kota.provinsi')->orderBy('id','DESC')->get();
         return view('admin.tracking.index', compact('tracking'));
     }
 
