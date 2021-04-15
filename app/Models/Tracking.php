@@ -19,6 +19,6 @@ class Tracking extends Model
     ];
 
     public function rw(){
-        return $this->belongsTo(Rw::class, 'id_rw');
+        return $this->belongsTo('App\Models\Rw', 'id_rw');
     }
 }
